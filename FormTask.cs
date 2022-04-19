@@ -23,8 +23,6 @@ namespace WorkedTogether
 
         private DataTable dataTable = null;
 
-        private DataView dataView = null;
-
         public FormTask()
         {
             InitializeComponent();
@@ -47,9 +45,10 @@ namespace WorkedTogether
             dataTable.Columns.AddRange(new DataColumn[4] { new DataColumn("EmployeeID1", typeof(string)),
                                                            new DataColumn("EmployeeID2", typeof(string)),
                                                            new DataColumn("ProjectID", typeof(string)),
-                                                           new DataColumn("DaysWorked",typeof(string)) });
+                                                           new DataColumn("DaysWorked",typeof(string)) });            
             //DataRow dr = dataTable.Rows.Add("1", "2", "3", "4");
             this.dataGridViewRoot.DataSource = new DataView(dataTable);
+            this.dataGridViewRoot.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewRoot.AllowUserToAddRows = false;
 
             initToolStripComboBoxSort();
@@ -149,7 +148,12 @@ namespace WorkedTogether
                 dataGridViewRoot.DataSource = new DataView(dataTable);
                 toolStripComboBoxFilter.Items.AddRange(Common.projects.Keys.ToArray());
                 toolStripComboBoxFilter.SelectedIndex = 0;
-            }));
+                toolStripComboBoxSort.Enabled = true;
+                toolStripButtonSort.Enabled = true;
+                toolStripComboBoxFilter.Enabled = true;
+                toolStripButtonSave.Enabled = true;
+                saveAsToolStripMenuItem.Enabled = true;
+            }));            
         }        
 
         /// <summary>
@@ -198,6 +202,18 @@ namespace WorkedTogether
         private void toolStripComboBoxSort_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataGridViewRoot.Sort(dataGridViewRoot.Columns[toolStripComboBoxSort.Text], toolStripButtonSort.Checked ? ListSortDirection.Ascending : ListSortDirection.Descending);
+            if (toolStripComboBoxSort.Text == "ProjectID")
+            {
+                toolStripComboBoxFilter.Enabled = true;
+            } else
+            {
+                DataView dv = new DataView(dataTable);
+                dv.RowFilter = "";
+                dataGridViewRoot.DataSource = dv;
+                toolStripComboBoxFilter.SelectedIndex = 0;
+                toolStripComboBoxFilter.Enabled = false;
+
+            }
         }
 
         /// <summary>

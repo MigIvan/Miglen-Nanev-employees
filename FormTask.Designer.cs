@@ -80,8 +80,9 @@ namespace WorkedTogether
             // 
             // saveAsToolStripMenuItem
             // 
+            this.saveAsToolStripMenuItem.Enabled = false;
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save as ...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -116,6 +117,7 @@ namespace WorkedTogether
             // toolStripButtonSave
             // 
             this.toolStripButtonSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSave.Enabled = false;
             this.toolStripButtonSave.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSave.Image")));
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
@@ -137,6 +139,7 @@ namespace WorkedTogether
             // toolStripComboBoxSort
             // 
             this.toolStripComboBoxSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxSort.Enabled = false;
             this.toolStripComboBoxSort.Name = "toolStripComboBoxSort";
             this.toolStripComboBoxSort.Size = new System.Drawing.Size(121, 25);
             this.toolStripComboBoxSort.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxSort_SelectedIndexChanged);
@@ -148,6 +151,7 @@ namespace WorkedTogether
             this.toolStripButtonSort.CheckOnClick = true;
             this.toolStripButtonSort.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripButtonSort.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonSort.Enabled = false;
             this.toolStripButtonSort.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSort.Image")));
             this.toolStripButtonSort.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSort.Name = "toolStripButtonSort";
@@ -168,6 +172,7 @@ namespace WorkedTogether
             // 
             // toolStripComboBoxFilter
             // 
+            this.toolStripComboBoxFilter.Enabled = false;
             this.toolStripComboBoxFilter.Name = "toolStripComboBoxFilter";
             this.toolStripComboBoxFilter.Size = new System.Drawing.Size(121, 25);
             this.toolStripComboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBoxFilter_SelectedIndexChanged);
